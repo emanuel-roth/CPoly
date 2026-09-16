@@ -4,7 +4,7 @@
 </p>
  
 
-*QuiverCombinatoricsTools* is a *SageMath* package that adds combinatorial functions to *QuiverTools* to calculate symplectic leaves of quiver varieties. It adds on to the *QuiverTools* package written by Pieter Belmans, Hans Franzen and Gianni Petrella, as seen [here](https://sage.quiver.tools/) and [here](https://github.com/QuiverTools/QuiverTools). The website is hosted [here](https://github.com/QuiverCombinatoricsTools/quivercombinatoricstools.github.io).
+*CPoly* is a *SageMath* package that adds combinatorial functions to *QuiverTools* to calculate symplectic leaves of quiver varieties. It adds on to the *QuiverTools* package written by Pieter Belmans, Hans Franzen and Gianni Petrella, as seen [here](https://sage.quiver.tools/) and [here](https://github.com/QuiverTools/QuiverTools). The website is hosted [here](https://github.com/QuiverCombinatoricsTools/quivercombinatoricstools.github.io).
 
 # Authors
 
