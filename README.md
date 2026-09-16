@@ -6,13 +6,9 @@
 
 *CPoly* is a *SageMath* package that adds combinatorial functions to *QuiverTools* to calculate symplectic leaves of quiver varieties. It adds on to the *QuiverTools* package written by Pieter Belmans, Hans Franzen and Gianni Petrella, as seen [here](https://sage.quiver.tools/) and [here](https://github.com/QuiverTools/QuiverTools). The website is hosted [here](https://github.com/QuiverCombinatoricsTools/quivercombinatoricstools.github.io).
 
-# Authors
+# Author
 
-* Tudor-Ioan Caba (University of Edinburgh)
-* Mia Lam (University of Edinburgh)
-* [Emanuel Roth](https://emanuel-roth.github.io/) (University of Edinburgh)
-
-We were supervised by [Gwyn Bellamy](https://sites.google.com/view/gwynbellamy/home) (University of Glasgow), as part of an [AGQ](https://www.agq-cdt.org/) computing project. The project is licensed under the *MIT license*. We are open to improvements and suggestions.
+[Emanuel Roth](https://emanuel-roth.github.io/) (University of Edinburgh)
 
 # Instructions
 
