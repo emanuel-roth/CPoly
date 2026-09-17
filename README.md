@@ -4,7 +4,7 @@
 </p>
  
 
-*CPoly* is a *SageMath* package that adds combinatorial functions to *QuiverTools* to calculate symplectic leaves of quiver varieties. It adds on to the *QuiverTools* package written by Pieter Belmans, Hans Franzen and Gianni Petrella, as seen [here](https://sage.quiver.tools/) and [here](https://github.com/QuiverTools/QuiverTools). The website is hosted [here](https://github.com/QuiverCombinatoricsTools/quivercombinatoricstools.github.io).
+*CPoly* is a *SageMath* package that adds functionality for complementary polyhedra, calculating their stability conditions, numerical invariants, degrees, and special facets as well as Jordan-Hölder facets. This is based on Kai Behrend's paper on [Semi-stability for reductive group schemes](https://link.springer.com/article/10.1007/BF01446630), and the author's paper on [Jordan-Hölder theory for complementary polyhedra and moduli of parahoric Higgs torsors](https://arxiv.org/abs/2609.17231).
 
 # Author
 
@@ -12,39 +12,32 @@
 
 # Instructions
 
-To install it, make sure you have both QuiverTools and QuiverCombinatoricsTools
+To install it, make sure you have CPoly
 ```
-sage --pip install git+https://github.com/QuiverTools/QuiverTools.git
-sage --pip install git+https://github.com/QuiverCombinatoricsTools/QuiverCombinatoricsTools.git
+sage --pip install git+...
 ```
 and then you can simply run
 ```
-from quiver import *
-from quivercombinatorics import *
+from cpoly import *
 ```
 to get started.
 
-Alternatively, you can run it from your browser in a notebook here using [binder](https://mybinder.org/v2/gh/QuiverCombinatoricsTools/binder/HEAD).
+Alternatively, you can run it from your browser in a notebook here using binder.
 
 # Documentation
 
-You can read the documentation of *QuiverCombinatoricsTools* as:
+You can read the documentation of *CPoly* as:
 
-* [a webpage](https://quivercombinatoricstools.github.io/)
-* [a pdf](https://raw.githubusercontent.com/QuiverCombinatoricsTools/quivercombinatoricstools.github.io/main/docs/_static/quivercombinatoricstools.pdf)
+* a webpage
+* a pdf
 
-This builds on *QuiverTools*, and you can read the documentation of *QuiverTools* as:
-
-* [a webpage](https://sage.quiver.tools)
-* [a pdf](https://sage.quiver.tools/documentation.pdf)
-
-# How to cite QuiverCombinatoricsTools
+# How to cite CPoly
 
 If you have used this code in any way, please consider citing it in the following way.
 ```
-@software{quivercombinatoricstools,
-  author = {Caba, Tudor-Ioan and Lam, Mia and Roth, Emanuel},
-  title = {QuiverCombinatoricsTools},
-  url = {https://quivercombinatoricstools.github.io},
+@software{cpoly,
+  author = {Roth, Emanuel},
+  title = {CPoly},
+  url = {...},
 }
 ```
