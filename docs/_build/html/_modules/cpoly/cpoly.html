@@ -1,0 +1,1651 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html">
+        <link rel="prefetch" href="../../_static/cpolylogo.svg" as="image">
+        <link rel="prefetch" href="../../_static/cpolylogodark.svg" as="image">
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
+        <title>cpoly.cpoly - CPoly</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">CPoly</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/cpolylogo.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/cpolylogodark.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">CPoly</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <h1>Source code for cpoly.cpoly</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sage.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">RootSystem</span> <span class="k">as</span> <span class="n">BaseRootSystem</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sage.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">CartanType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sage.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">CartanMatrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sage.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">vector</span><span class="p">,</span> <span class="n">diagonal_matrix</span><span class="p">,</span> <span class="n">QQ</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sage.combinat.subset</span><span class="w"> </span><span class="kn">import</span> <span class="n">Subsets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">combinations</span>
+
+<div class="viewcode-block" id="greater_than">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.greater_than">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">greater_than</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compares two lists, and distinguishes when elements of :math:`B` are in :math:`A`</span>
+
+<span class="sd">    INPUT: Tuples :math:`A` and :math:`B`</span>
+
+<span class="sd">    OUTPUT: ``True`` if elements of :math:`B` are in :math:`A`, and ``False`` otherwise</span>
+
+<span class="sd">    EXAMPLE::</span>
+
+<span class="sd">        sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">        sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">        sage: A = A2.facets()[0]</span>
+<span class="sd">        sage: B = A2.facets()[1]</span>
+<span class="sd">        sage: greater_than(A,B)</span>
+<span class="sd">        True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">B</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">A</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">RootSystem</span><span class="p">(</span><span class="n">BaseRootSystem</span><span class="p">):</span>
+
+<div class="viewcode-block" id="RootSystem.weyl_chambers">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.weyl_chambers">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">weyl_chambers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the Weyl chambers of the root system. The Weyl chambers are represented by the images of the tuple of fundamental weights under the action of the Weyl group.  More precisely, if :math:`\Lambda_1, \ldots, \Lambda_n` are the fundamental weights and ``W`` is the Weyl group, this method returns :math:`\{(w(\Lambda_1), \ldots, w(\Lambda_n)) : w \in W\}`. Each chamber is represented as a tuple whose entries are the fundamental weights that span it as a cone.</span>
+
+<span class="sd">        OUTPUT: :math:`\{(w(\Lambda_1), \ldots, w(\Lambda_n)) : w \in W\}`</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: A2.weyl_chambers()</span>
+<span class="sd">            [(Lambda[1], Lambda[2]),</span>
+<span class="sd">            (-Lambda[1] + Lambda[2], -Lambda[1]),</span>
+<span class="sd">            (-Lambda[2], Lambda[1] - Lambda[2]),</span>
+<span class="sd">            (-Lambda[1] + Lambda[2], Lambda[2]),</span>
+<span class="sd">            (Lambda[1], Lambda[1] - Lambda[2]),</span>
+<span class="sd">            (-Lambda[2], -Lambda[1])]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">WL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_lattice</span><span class="p">()</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">WL</span><span class="o">.</span><span class="n">weyl_group</span><span class="p">()</span>
+        <span class="n">Lambda</span> <span class="o">=</span> <span class="n">WL</span><span class="o">.</span><span class="n">fundamental_weights</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">Lambda</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Lambda</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">W</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.facets">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.facets">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">facets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the facets of the root system. The facets are the faces of each Weyl chamber, including the trivial facet :math:`\{0\}`. Each facet is represented as a tuple of its verticies, i.e., the fundamental weights that span it as a cone.</span>
+
+<span class="sd">        OUTPUT: Facets as a list of tuples of their vertices</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: A2.facets()</span>
+<span class="sd">            [(),</span>
+<span class="sd">            (Lambda[1],),</span>
+<span class="sd">            (-Lambda[1] + Lambda[2],),</span>
+<span class="sd">            (-Lambda[2],),</span>
+<span class="sd">            (Lambda[2],),</span>
+<span class="sd">            (-Lambda[1],),</span>
+<span class="sd">            (Lambda[1] - Lambda[2],),</span>
+<span class="sd">            (Lambda[1], Lambda[2]),</span>
+<span class="sd">            (-Lambda[1] + Lambda[2], -Lambda[1]),</span>
+<span class="sd">            (-Lambda[2], Lambda[1] - Lambda[2]),</span>
+<span class="sd">            (-Lambda[1] + Lambda[2], Lambda[2]),</span>
+<span class="sd">            (Lambda[1], Lambda[1] - Lambda[2]),</span>
+<span class="sd">            (-Lambda[2], -Lambda[1])]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">WL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_lattice</span><span class="p">()</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">WL</span><span class="o">.</span><span class="n">weyl_group</span><span class="p">()</span>
+        <span class="n">Lambda</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">WL</span><span class="o">.</span><span class="n">fundamental_weights</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="n">fundamental_facets</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Lambda</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">S</span> <span class="ow">in</span> <span class="n">Subsets</span><span class="p">(</span><span class="n">Lambda</span><span class="p">,</span> <span class="n">r</span><span class="p">)]</span>
+        <span class="n">facets</span> <span class="o">=</span> <span class="p">[()]</span>
+        <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">facet</span> <span class="ow">in</span> <span class="n">fundamental_facets</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">W</span><span class="p">:</span>
+                <span class="n">image</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span> <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">facet</span><span class="p">)</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">str</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+                    <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                    <span class="n">facets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">facets</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.facets_one_dimensional">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.facets_one_dimensional">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">facets_one_dimensional</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the one-dimensional facets of the root system.</span>
+<span class="sd">                </span>
+<span class="sd">        The facets are the faces of each Weyl chamber, of which one-dimensional facets are spanned by one vertex.</span>
+<span class="sd">        </span>
+<span class="sd">        OUTPUT: One-dimensional facets as a list of tuples of their vertices</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: A2.facets_one_dimensional()</span>
+<span class="sd">            [(Lambda[1],),</span>
+<span class="sd">             (-Lambda[1] + Lambda[2],),</span>
+<span class="sd">             (-Lambda[2],),</span>
+<span class="sd">             (Lambda[2],),</span>
+<span class="sd">             (-Lambda[1],),</span>
+<span class="sd">             (Lambda[1] - Lambda[2],)]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">WL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_lattice</span><span class="p">()</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">WL</span><span class="o">.</span><span class="n">weyl_group</span><span class="p">()</span>
+        <span class="n">Lambda</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">WL</span><span class="o">.</span><span class="n">fundamental_weights</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+        <span class="n">facets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">Lambda</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">W</span><span class="p">:</span>
+                <span class="n">image</span> <span class="o">=</span> <span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">weight</span><span class="p">),)</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">str</span><span class="p">))</span>
+
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+                    <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                    <span class="n">facets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">facets</span></div>
+
+    
+<div class="viewcode-block" id="RootSystem.weyl_chambers_smaller_than_facet">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.weyl_chambers_smaller_than_facet">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">weyl_chambers_smaller_than_facet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the Weyl chambers smaller than given facet</span>
+<span class="sd">                                        </span>
+<span class="sd">        OUTPUT: The Weyl chambers smaller than given facet</span>
+<span class="sd">        </span>
+<span class="sd">        EXAMPLE::</span>
+<span class="sd">        </span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">        </span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: Facet = A2.facets()[1]</span>
+<span class="sd">            sage: A2.weyl_chambers_smaller_than_facet(Facet)</span>
+<span class="sd">            [(Lambda[1], Lambda[2]), (Lambda[1], Lambda[1] - Lambda[2])]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">WL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_lattice</span><span class="p">()</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">WL</span><span class="o">.</span><span class="n">weyl_group</span><span class="p">()</span>
+        <span class="n">Lambda</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">WL</span><span class="o">.</span><span class="n">fundamental_weights</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span> <span class="k">for</span> <span class="n">lam</span> <span class="ow">in</span> <span class="n">Lambda</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">W</span> <span class="k">if</span> <span class="n">greater_than</span><span class="p">(</span><span class="n">facet</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span> <span class="k">for</span> <span class="n">lam</span> <span class="ow">in</span> <span class="n">Lambda</span><span class="p">))]</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.euclidean_product">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.euclidean_product">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">euclidean_product</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the Euclidean inner product of two elements of the root or weight lattice. The bilinear form is obtained from the Cartan matrix ``A`` and its symmetrizer ``D``.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``v`` -- an element of the root or weight lattice</span>
+<span class="sd">            - ``w`` -- an element of the root or weight lattice</span>
+<span class="sd">            </span>
+<span class="sd">        OUTPUT: An element of `\QQ` representing the Euclidean inner product of ``v`` and ``w``</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: A2.euclidean_product(alpha[1], alpha[2])</span>
+<span class="sd">            -1</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+        <span class="n">A</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartan_matrix</span><span class="p">())</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">diagonal_matrix</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartan_type</span><span class="p">()</span><span class="o">.</span><span class="n">symmetrizer</span><span class="p">())</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">A</span>
+        <span class="k">return</span> <span class="n">v</span><span class="o">.</span><span class="n">to_vector</span><span class="p">()</span> <span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">w</span><span class="o">.</span><span class="n">to_vector</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.weight_to_root_space">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.weight_to_root_space">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">weight_to_root_space</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Express a weight as an element of the root space. Given a weight ``\lambda``, this method computes its coordinates with respect to the basis of simple roots and returns the corresponding element of the root space.</span>
+
+<span class="sd">        INPUT: ``weight`` -- an element of the weight lattice</span>
+<span class="sd">        </span>
+<span class="sd">        OUTPUT: An element of the root space representing ``weight`` in the basis of simple roots</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: A2.weight_to_root_space(Lambda[1])</span>
+<span class="sd">            2/3*alpha[1] + 1/3*alpha[2]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartan_matrix</span><span class="p">())</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">weight</span><span class="o">.</span><span class="n">to_vector</span><span class="p">()</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">c</span>
+        <span class="n">simple_roots</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">simple_roots</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span>
+            <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">simple_roots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">simple_roots</span><span class="p">))</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.is_domain_range_comp_poly">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.is_domain_range_comp_poly">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_domain_range_comp_poly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether a function is evaluated on the Weyl chambers, into the root space, similar to a complementary polyhedron. A valid ``comp_poly`` is a dictionary whose keys are Weyl chambers</span>
+<span class="sd">        of ``self`` and whose values are elements of the root space of ``self``. We identify the root space with its dual through the canonical isomorphism from the inner product, so this is isomorphic to Behrend&#39;s definition.</span>
+
+<span class="sd">        INPUT: ``comp_poly`` -- a dictionary mapping Weyl chambers to elements of the root space</span>
+
+<span class="sd">        OUTPUT: ``True`` if ``comp_poly`` has the required form, and ``False`` otherwise</span>
+<span class="sd">        </span>
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: A2.is_domain_range_comp_poly(comp_poly)</span>
+<span class="sd">            True</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">chambers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weyl_chambers</span><span class="p">()</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">comp_poly</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">chambers</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">R</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">comp_poly</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.has_A1">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.has_A1">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">has_A1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether a complementary polyhedron ``comp_poly`` has property ``A1``, as laid out in Behrend&#39;s paper.</span>
+
+<span class="sd">        INPUT: ``comp_poly`` -- a dictionary mapping Weyl chambers to elements of the root space</span>
+<span class="sd">        </span>
+<span class="sd">        OUTPUT: ``True`` if ``comp_poly`` fulfills ``A1``, and ``False`` otherwise</span>
+
+<span class="sd">        EXAMPLE::</span>
+<span class="sd">                        </span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">                        </span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: A2.has_A1(comp_poly)</span>
+<span class="sd">            True</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">facet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">facets_one_dimensional</span><span class="p">():</span>
+            <span class="n">facet_vector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">facet</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">chambers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weyl_chambers_smaller_than_facet</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">chamber1</span><span class="p">,</span> <span class="n">chamber2</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">chambers</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+                <span class="n">value1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">[</span><span class="n">chamber1</span><span class="p">],</span> <span class="n">facet_vector</span><span class="p">)</span>
+                <span class="n">value2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">[</span><span class="n">chamber2</span><span class="p">],</span> <span class="n">facet_vector</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">value1</span> <span class="o">!=</span> <span class="n">value2</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.has_A2">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.has_A2">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">has_A2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether a complementary polyhedron ``comp_poly`` has property ``A2``, as laid out in Behrend&#39;s paper.</span>
+<span class="sd">        </span>
+<span class="sd">        INPUT: ``comp_poly`` -- a dictionary mapping Weyl chambers to elements of the root space</span>
+<span class="sd">                </span>
+<span class="sd">        OUTPUT: ``True`` if ``comp_poly`` fulfills ``A2``, and ``False`` otherwise</span>
+
+<span class="sd">        EXAMPLE::</span>
+<span class="sd">                                </span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">                                </span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: A2.has_A2(comp_poly)</span>
+<span class="sd">            True</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">facet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">facets_one_dimensional</span><span class="p">():</span>
+            <span class="n">chambers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weyl_chambers_smaller_than_facet</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">chamber1</span><span class="p">,</span> <span class="n">chamber2</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">chambers</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">root</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">:</span>
+                    <span class="n">positive</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">weight</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">chamber1</span><span class="p">)</span>
+                    <span class="n">negative</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">weight</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">chamber2</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">positive</span> <span class="ow">and</span> <span class="n">negative</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">[</span><span class="n">chamber1</span><span class="p">],</span> <span class="n">root</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">[</span><span class="n">chamber2</span><span class="p">],</span> <span class="n">root</span><span class="p">):</span>
+                            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.is_comp_poly">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.is_comp_poly">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_comp_poly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether ``comp_poly`` satisfies the conditions for being a complementary polyhedron. The following three conditions are checked:</span>
+
+<span class="sd">            1. ``comp_poly`` is a dictionary whose keys are Weyl chambers and whose values are elements of the root space.</span>
+<span class="sd">            2. ``comp_poly`` satisfies property :math:`A1`.</span>
+<span class="sd">            3. ``comp_poly`` satisfies property :math:`A2`.</span>
+
+<span class="sd">        INPUT: ``comp_poly`` -- a dictionary mapping Weyl chambers to elements of the root space</span>
+
+<span class="sd">        OUTPUT: ``True`` if ``comp_poly`` satisfies all three conditions, and ``False`` otherwise</span>
+<span class="sd">        </span>
+<span class="sd">        EXAMPLE::</span>
+<span class="sd">                                        </span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">                                        </span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: A2.is_comp_poly(comp_poly)</span>
+<span class="sd">            True</span>
+<span class="sd">                </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_domain_range_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_A1</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_A2</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.R_facet">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.R_facet">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">R_facet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the roots that are nonnegative with respect to every vertex of ``facet``.</span>
+<span class="sd">    </span>
+<span class="sd">        INPUT: ``facet`` -- a facet represented as a tuple of vertices in the weight lattice</span>
+<span class="sd">    </span>
+<span class="sd">        OUTPUT: A list of roots ``alpha`` that are nonnegative with respect to ``facet``</span>
+<span class="sd">    </span>
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: Facet = A2.facets()[1]</span>
+<span class="sd">            sage: A2.R_facet(Facet)</span>
+<span class="sd">            [alpha[1], alpha[2], alpha[1] + alpha[2], -alpha[2]]</span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">root</span> <span class="k">for</span> <span class="n">root</span> <span class="ow">in</span> <span class="n">roots</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">vertex</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">facet</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.U_facet">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.U_facet">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">U_facet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the roots that are positive with respect to every vertex of ``facet``.</span>
+
+<span class="sd">        INPUT: ``facet`` -- a facet represented as a tuple of vertices in the weight lattice</span>
+
+<span class="sd">        OUTPUT: A list of roots ``alpha`` that are positive with respect to ``facet``</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: Facet = A2.facets()[1]</span>
+<span class="sd">            sage: A2.U_facet(Facet)</span>
+<span class="sd">            [alpha[1], alpha[1] + alpha[2]]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">root</span> <span class="k">for</span> <span class="n">root</span> <span class="ow">in</span> <span class="n">roots</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">vertex</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">facet</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.degree">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.degree">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">degree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the degree associated to ``facet``. The degree is computed by choosing a Weyl chamber smaller than ``facet`` and summing the Euclidean products of its image under ``comp_poly`` with all roots in ``U_facet(facet)``.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron</span>
+<span class="sd">            - ``facet`` -- a facet</span>
+
+<span class="sd">        OUTPUT: A rational number</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: Facet = A2.facets()[3]</span>
+<span class="sd">            sage: A2.degree(comp_poly, Facet)</span>
+<span class="sd">            -3</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">chambers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weyl_chambers_smaller_than_facet</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+        <span class="n">chamber</span> <span class="o">=</span> <span class="n">chambers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">U_facet</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">[</span><span class="n">chamber</span><span class="p">],</span> <span class="n">alpha</span><span class="p">)</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.is_semistable">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.is_semistable">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_semistable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether ``comp_poly`` is semistable. A complementary polyhedron is semistable if the degree of every one-dimensional facet is less than or equal to zero.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron</span>
+<span class="sd">            - ``check`` -- checks if ``comp_poly`` is a complementary polyhedron or not</span>
+
+
+<span class="sd">        OUTPUT: ``True`` if ``comp_poly`` is a semistable complementary polyhedron, and ``False`` otherwise</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: A2.is_semistable(comp_poly)</span>
+<span class="sd">            False</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">check</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">facet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">facets_one_dimensional</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.is_stable">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.is_stable">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_stable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether ``comp_poly`` is stable. A complementary polyhedron is stable if the degree of every one-dimensional facet is less than zero.</span>
+<span class="sd">    </span>
+<span class="sd">        INPUT:</span>
+<span class="sd">            -``comp_poly`` -- a complementary polyhedron</span>
+<span class="sd">            - ``check`` -- checks if ``comp_poly`` is a complementary polyhedron or not</span>
+<span class="sd">    </span>
+<span class="sd">        OUTPUT: ``True`` if ``comp_poly`` is a semistable complementary polyhedron, and ``False`` otherwise</span>
+
+<span class="sd">        EXAMPLE::</span>
+<span class="sd">        </span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">        </span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: A2.is_stable(comp_poly)</span>
+<span class="sd">            False</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">check</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">facet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">facets_one_dimensional</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.psi">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.psi">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the roots ``alpha`` such that :math:`(\alpha, \text{vertex}) = 1` and :math:`(\alpha, \mu) = 0` for every other vertex ``mu`` in ``facet``.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``facet`` -- a facet represented as a tuple of vertices</span>
+<span class="sd">            - ``vertex`` -- a vertex of ``facet``</span>
+
+<span class="sd">        OUTPUT: A list of roots satisfying the above conditions.</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: Lambda = A2.weight_lattice().fundamental_weights()</span>
+<span class="sd">            sage: Facet = A2.facets()[3]</span>
+<span class="sd">            sage: A2.psi(Facet, -Lambda[2])</span>
+<span class="sd">            [-alpha[2], -alpha[1] - alpha[2]]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">facet</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;vertex must be an element of facet&quot;</span><span class="p">)</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">alpha</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">roots</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">vertex</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">mu</span> <span class="ow">in</span> <span class="n">facet</span> <span class="k">if</span> <span class="n">mu</span> <span class="o">!=</span> <span class="n">vertex</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.numerical_invariant">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.numerical_invariant">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">numerical_invariant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the degree associated to ``facet``. The degree is computed by choosing a Weyl chamber smaller than ``facet`` and summing the Euclidean products of its image under ``comp_poly`` with all roots in ``U_facet(facet)``.</span>
+<span class="sd">        </span>
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron</span>
+<span class="sd">            - ``facet`` -- a facet</span>
+<span class="sd">            - ``vertex`` -- a vertex of ``facet``</span>
+<span class="sd">        </span>
+<span class="sd">        OUTPUT: A rational number</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: Facet = A2.facets()[3]</span>
+<span class="sd">            sage: A2.numerical_invariant(comp_poly, Facet, -Lambda[2])</span>
+<span class="sd">            -3</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">facet</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;vertex must be an element of facet&quot;</span><span class="p">)</span>
+        <span class="n">chambers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weyl_chambers_smaller_than_facet</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+        <span class="n">chamber</span> <span class="o">=</span> <span class="n">chambers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">psi</span><span class="p">(</span><span class="n">facet</span><span class="p">,</span> <span class="n">vertex</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">[</span><span class="n">chamber</span><span class="p">],</span> <span class="n">alpha</span><span class="p">)</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.F_facet">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.F_facet">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">F_facet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the restriction of ``comp_poly`` to the Weyl chambers smaller than ``facet``.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron</span>
+<span class="sd">            - ``facet`` -- a facet</span>
+
+<span class="sd">        OUTPUT: The restriction of ``comp_poly`` to the Weyl chambers smaller than ``facet``</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: Facet = A2.facets()[3]</span>
+<span class="sd">            sage: A2.F_facet(comp_poly, Facet)</span>
+<span class="sd">            {(-Lambda[2], -Lambda[1]): alpha[1] + alpha[2],</span>
+<span class="sd">             (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2]}</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+        <span class="n">chambers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weyl_chambers_smaller_than_facet</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">chamber</span><span class="p">:</span> <span class="n">comp_poly</span><span class="p">[</span><span class="n">chamber</span><span class="p">]</span> <span class="k">for</span> <span class="n">chamber</span> <span class="ow">in</span> <span class="n">chambers</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.y_facet">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.y_facet">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">y_facet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes the y value of a facet with respect to a complementary polyhedron.</span>
+<span class="sd">        </span>
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron</span>
+<span class="sd">            - ``facet`` -- a facet</span>
+<span class="sd">        </span>
+<span class="sd">        OUTPUT: The restriction of ``comp_poly`` to the Weyl chambers smaller than ``facet``</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: Facet = A2.facets()[3]</span>
+<span class="sd">            sage: A2.y_facet(comp_poly, Facet)</span>
+<span class="sd">            3*alpha[1] + 6*alpha[2]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+
+        <span class="n">R</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerical_invariant</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">vertex</span><span class="p">)</span>
+                <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">vertex</span><span class="p">),</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">facet</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.roots_facet_perp">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.roots_facet_perp">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">roots_facet_perp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the roots orthogonal to every vertex of ``facet``, forming a root system in the perpendicular space to ``facet``.</span>
+
+<span class="sd">        INPUT: ``facet`` -- a facet</span>
+
+<span class="sd">        OUTPUT: A list of roots perpendicular to ``facet``</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: Facet = A2.facets()[3]</span>
+<span class="sd">            sage: A2.roots_facet_perp(Facet)</span>
+<span class="sd">            [alpha[1], -alpha[1]]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">alpha</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">roots</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span>
+                    <span class="n">alpha</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+                <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">facet</span>
+            <span class="p">)</span>
+        <span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.ambient_vector_to_root_space">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.ambient_vector_to_root_space">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ambient_vector_to_root_space</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Converts an ambient vector to an element of the root space. This method provides a common interface for vectors that may be represented in the root space, root lattice, or weight lattice.</span>
+<span class="sd">        </span>
+<span class="sd">        INPUT: ``v`` -- an element of the root space, root lattice, or weight lattice</span>
+
+<span class="sd">        OUTPUT: An element of the root space representing ``v``</span>
+
+<span class="sd">        EXAMPLES::</span>
+<span class="sd">        </span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">        </span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: A2.ambient_vector_to_root_space(alpha[1])</span>
+<span class="sd">            alpha[1]</span>
+
+<span class="sd">            sage: A2.ambient_vector_to_root_space(Lambda[1])</span>
+<span class="sd">            2/3*alpha[1] + 1/3*alpha[2]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span> <span class="ow">is</span> <span class="n">R</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">v</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">R</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">v</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="RootSystem.project_to_facet_perp">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.project_to_facet_perp">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">project_to_facet_perp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Orthogonally projects ``v`` onto the orthogonal complement of the linear span of ``facet``.</span>
+
+<span class="sd">        INPUT: ``v`` -- an element of the root space, root lattice, or weight lattice</span>
+
+<span class="sd">        OUTPUT: ``v`` -- an element of the root space, root lattice, or weight lattice</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: Facet = A2.facets()[3]</span>
+<span class="sd">            sage: A2.project_to_facet_perp(Lambda[1], Facet)</span>
+<span class="sd">            1/2*alpha[1]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ambient_vector_to_root_space</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">facet</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">v</span>
+
+        <span class="n">facet_vectors</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ambient_vector_to_root_space</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">facet</span>
+        <span class="p">]</span>
+
+        <span class="c1">#Gram matrix with respect to the root-system inner product</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">facet_vectors</span>
+            <span class="p">]</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">facet_vectors</span>
+        <span class="p">])</span>
+
+        <span class="n">b</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">facet_vectors</span>
+        <span class="p">])</span>
+
+        <span class="c1"># G c = b</span>
+        <span class="n">coefficients</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">solve_right</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+        <span class="c1">#Projection onto span(facet)</span>
+        <span class="n">projection</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">facet_vectors</span><span class="p">)):</span>
+            <span class="n">projection</span> <span class="o">+=</span> <span class="n">coefficients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">facet_vectors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="c1">#Orthogonal component.</span>
+        <span class="k">return</span> <span class="n">R</span><span class="o">.</span><span class="n">from_vector</span><span class="p">(</span>
+            <span class="n">v</span><span class="o">.</span><span class="n">to_vector</span><span class="p">()</span> <span class="o">-</span> <span class="n">projection</span><span class="o">.</span><span class="n">to_vector</span><span class="p">()</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.project_chamber_to_facet_perp">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.project_chamber_to_facet_perp">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">project_chamber_to_facet_perp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chamber</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Orthogonally projects a Weyl chamber smaller than ``facet`` onto the perpendicular space to ``facet``.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``chamber`` -- a Weyl chamber</span>
+<span class="sd">            - ``facet`` -- a facet in the Weyl chamber</span>
+<span class="sd">        </span>
+<span class="sd">        OUTPUT: The projected Weyl chamber in the perpendicular space of ``facet``</span>
+<span class="sd">        </span>
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: Chamber = A2.weyl_chambers()[1]</span>
+<span class="sd">            sage: Facet = A2.facets()[2]</span>
+<span class="sd">            sage: A2.project_chamber_to_facet_perp(Chamber, Facet)</span>
+<span class="sd">            (-1/2*alpha[1] - 1/2*alpha[2],)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">greater_than</span><span class="p">(</span><span class="n">facet</span><span class="p">,</span> <span class="n">chamber</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;chamber must be smaller than facet&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">project_to_facet_perp</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">facet</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">chamber</span>
+            <span class="k">if</span> <span class="n">vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">facet</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.simple_roots_facet_perp">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.simple_roots_facet_perp">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">simple_roots_facet_perp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the simple roots of the root system in :math:`P^\perp`.</span>
+<span class="sd">        </span>
+<span class="sd">        INPUT: ``facet`` -- a facet in the root system</span>
+
+<span class="sd">        OUTPUT: Simple roots in the root system of the perpendicular space</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: Facet = A2.facets()[2]</span>
+<span class="sd">            sage: A2.simple_roots_facet_perp(Facet)</span>
+<span class="sd">            [-alpha[1] - alpha[2]]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">roots_facet_perp</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+
+        <span class="n">chambers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weyl_chambers_smaller_than_facet</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">chambers</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;facet has no smaller Weyl chambers&quot;</span><span class="p">)</span>
+
+        <span class="n">chamber</span> <span class="o">=</span> <span class="n">chambers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1">#A vector in the interior of the projected chamber</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">project_to_facet_perp</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">vertex</span><span class="p">),</span> <span class="n">facet</span>
+                <span class="p">)</span>   
+                <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">chamber</span>
+                <span class="k">if</span> <span class="n">vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">facet</span>
+            <span class="p">),</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
+        <span class="p">)</span>
+
+        <span class="n">positive_roots</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">alpha</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">roots</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="p">]</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">alpha</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">positive_roots</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span>
+                <span class="n">alpha</span> <span class="o">-</span> <span class="n">beta</span> <span class="ow">in</span> <span class="n">positive_roots</span>
+                <span class="k">for</span> <span class="n">beta</span> <span class="ow">in</span> <span class="n">positive_roots</span>
+            <span class="p">)</span>
+        <span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.cartan_matrix_facet_perp">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.cartan_matrix_facet_perp">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cartan_matrix_facet_perp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the Cartan matrix of the root system in :math:`P^\perp`.</span>
+
+<span class="sd">        INPUT: ``facet`` -- a facet in the root system</span>
+<span class="sd">        </span>
+<span class="sd">        OUTPUT: The Cartan matrix in the root system of the perpendicular space</span>
+<span class="sd">        </span>
+<span class="sd">        EXAMPLE::</span>
+<span class="sd">        </span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">        </span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: Facet = A2.facets()[2]</span>
+<span class="sd">            sage: A2.cartan_matrix_facet_perp(Facet)</span>
+<span class="sd">            [2]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">simple_roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simple_roots_facet_perp</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">matrix</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+                <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">beta</span> <span class="ow">in</span> <span class="n">simple_roots</span>
+            <span class="p">]</span>
+            <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">simple_roots</span>
+        <span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.root_system_facet_perp">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.root_system_facet_perp">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">root_system_facet_perp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the projected root system in :math:`P^\perp`.</span>
+<span class="sd">        </span>
+<span class="sd">        INPUT: ``facet`` -- a facet in the root system</span>
+<span class="sd">                </span>
+<span class="sd">        OUTPUT: The root system of the perpendicular space</span>
+<span class="sd">                </span>
+<span class="sd">        EXAMPLE::</span>
+<span class="sd">                </span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">                </span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: Facet = A2.facets()[2]</span>
+<span class="sd">            sage: A2.root_system_facet_perp(Facet)</span>
+<span class="sd">            Root system of type [&#39;A&#39;, 1] relabelled by {1: 0}</span>
+<span class="sd">                </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartan_matrix_facet_perp</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+        <span class="n">CM</span> <span class="o">=</span> <span class="n">CartanMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">RootSystem</span><span class="p">(</span><span class="n">CM</span><span class="o">.</span><span class="n">cartan_type</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.ambient_to_facet_root_space">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.ambient_to_facet_root_space">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ambient_to_facet_root_space</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Expresses an ambient vector in the root space of the induced root system on :math:`P^\perp`, where :math:`P` is the span of ``facet``.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``v`` -- a vector in the ambient root space, assumed to lie in :math:`P^\perp``</span>
+<span class="sd">            - ``facet`` -- a facet of the ambient Weyl chamber, represented as a tuple of vertices in the weight lattice</span>
+
+<span class="sd">        OUTPUT: A vector in the root space of the root system induced on :math:`P^\perp`, having the same coordinates with respect to the induced simple roots as ``v`` has with respect to the corresponding ambient vectors. If :math:`P^\perp` is zero-dimensional, the induced root system has no simple roots and the zero vector of its root space is returned.</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: Facet = A2.facets()[2]</span>
+<span class="sd">            sage: v = A2.project_to_facet_perp(Lambda[1], Facet)</span>
+<span class="sd">            sage: A2.ambient_to_facet_root_space(v, Facet)</span>
+<span class="sd">            -1/2*alpha[0]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">self_P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_system_facet_perp</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+        <span class="n">simple_roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simple_roots_facet_perp</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">simple_roots</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">self_P</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
+
+        <span class="n">G</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">beta</span> <span class="ow">in</span> <span class="n">simple_roots</span>
+            <span class="p">]</span>
+            <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">simple_roots</span>
+        <span class="p">])</span>
+
+        <span class="n">b</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">simple_roots</span>
+        <span class="p">])</span>
+
+        <span class="n">coefficients</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="n">G</span><span class="o">.</span><span class="n">solve_right</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">self_P</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span><span class="o">.</span><span class="n">from_vector</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.facet_chamber_correspondence">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.facet_chamber_correspondence">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">facet_chamber_correspondence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the correspondence between Weyl chambers smaller than ``facet`` and Weyl chambers of the induced root system. The keys are chambers of the induced root system and the values are the corresponding ambient chambers.</span>
+
+<span class="sd">        INPUT: ``facet`` -- a facet of the ambient root system, represented as a tuple of vertices in the weight lattice</span>
+<span class="sd">    </span>
+<span class="sd">        OUTPUT: A dictionary whose keys are Weyl chambers of the induced root system in :math:`P^\perp` and whose values are the corresponding Weyl chambers of the ambient root system containing ``facet`` as a face</span>
+<span class="sd">    </span>
+<span class="sd">        EXAMPLE::</span>
+<span class="sd">    </span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">    </span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: facet = A2.facets()[2] </span>
+<span class="sd">            sage: A2.facet_chamber_correspondence(facet)</span>
+<span class="sd">            {(-Lambda[0],): (-Lambda[1] + Lambda[2], Lambda[2]),</span>
+<span class="sd">             (Lambda[0],): (-Lambda[1] + Lambda[2], -Lambda[1])}</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">self_P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_system_facet_perp</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+
+        <span class="n">ambient_chambers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weyl_chambers_smaller_than_facet</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+        <span class="n">induced_chambers</span> <span class="o">=</span> <span class="n">self_P</span><span class="o">.</span><span class="n">weyl_chambers</span><span class="p">()</span>
+
+        <span class="n">simple_roots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simple_roots_facet_perp</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+
+        <span class="c1">#Determine the signs of the ambient projected chambers</span>
+        <span class="n">ambient_signs</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">chamber</span> <span class="ow">in</span> <span class="n">ambient_chambers</span><span class="p">:</span>
+            <span class="n">projected</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project_chamber_to_facet_perp</span><span class="p">(</span>
+                <span class="n">chamber</span><span class="p">,</span> <span class="n">facet</span>
+            <span class="p">)</span>
+
+            <span class="n">h</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
+                <span class="n">projected</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
+            <span class="p">)</span>
+
+            <span class="n">ambient_signs</span><span class="p">[</span><span class="n">chamber</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">euclidean_product</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">simple_roots</span>
+            <span class="p">)</span>
+
+        <span class="c1">#Determine the signs of the induced chambers</span>
+        <span class="c1">#We use the fundamental weights spanning each induced chamber</span>
+        <span class="c1">#Their sum is an interior vector</span>
+        <span class="n">induced_signs</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">P</span> <span class="o">=</span> <span class="n">self_P</span><span class="o">.</span><span class="n">root_space</span><span class="p">()</span>
+        <span class="n">induced_simple_roots</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+            <span class="n">P</span><span class="o">.</span><span class="n">simple_roots</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="p">)</span>
+
+        <span class="c1">#We cannot use self_P.euclidean_product(), since self_P</span>
+        <span class="c1">#is the ordinary Sage RootSystem. Compute the induced</span>
+        <span class="c1">#Euclidean form directly</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="n">self_P</span><span class="o">.</span><span class="n">cartan_matrix</span><span class="p">())</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">diagonal_matrix</span><span class="p">(</span>
+            <span class="n">QQ</span><span class="p">,</span>
+            <span class="n">self_P</span><span class="o">.</span><span class="n">cartan_type</span><span class="p">()</span><span class="o">.</span><span class="n">symmetrizer</span><span class="p">()</span>
+            <span class="p">)</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">A</span>
+
+        <span class="k">for</span> <span class="n">chamber</span> <span class="ow">in</span> <span class="n">induced_chambers</span><span class="p">:</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="n">self_P</span><span class="o">.</span><span class="n">weight_to_root_space</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">chamber</span>
+                <span class="p">),</span>
+                <span class="n">P</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
+            <span class="p">)</span>
+
+            <span class="n">h_vec</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">to_vector</span><span class="p">()</span>
+
+            <span class="n">induced_signs</span><span class="p">[</span><span class="n">chamber</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">alpha</span><span class="o">.</span><span class="n">to_vector</span><span class="p">()</span> <span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">h_vec</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">induced_simple_roots</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">chamber_P</span><span class="p">:</span> <span class="nb">next</span><span class="p">(</span>
+                <span class="n">chamber</span>
+                <span class="k">for</span> <span class="n">chamber</span> <span class="ow">in</span> <span class="n">ambient_chambers</span>
+                <span class="k">if</span> <span class="n">ambient_signs</span><span class="p">[</span><span class="n">chamber</span><span class="p">]</span> <span class="o">==</span> <span class="n">induced_signs</span><span class="p">[</span><span class="n">chamber_P</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">chamber_P</span> <span class="ow">in</span> <span class="n">induced_chambers</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.comp_poly_facet">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.comp_poly_facet">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">comp_poly_facet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Constructs the complementary polyhedron ``comp_poly`` projected down to :math:`P^\perp``, where :math:`P` is the ``facet``.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron of the ambient root system, represented as a dictionary whose keys are Weyl chambers and whose values are points in the ambient root space</span>
+<span class="sd">            - ``facet`` -- a facet of the ambient Weyl chamber decomposition, represented as a tuple of vertices in the weight lattice</span>
+
+<span class="sd">        OUTPUT:</span>
+
+<span class="sd">            A dictionary representing the complementary polyhedron induced on ``P^\perp``</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: Facet = A2.facets()[1]</span>
+<span class="sd">            sage: A2.comp_poly_facet(comp_poly,Facet)</span>
+<span class="sd">            {(-Lambda[0],): alpha[0], (Lambda[0],): 1/2*alpha[0]}</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+
+        <span class="n">correspondence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">facet_chamber_correspondence</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">chamber_P</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ambient_to_facet_root_space</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">project_to_facet_perp</span><span class="p">(</span>
+                    <span class="n">comp_poly</span><span class="p">[</span><span class="n">chamber</span><span class="p">],</span>
+                    <span class="n">facet</span>
+                <span class="p">),</span>
+                <span class="n">facet</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">chamber_P</span><span class="p">,</span> <span class="n">chamber</span> <span class="ow">in</span> <span class="n">correspondence</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.has_J1">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.has_J1">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">has_J1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether ``comp_poly`` has property ``J1`` with respect to ``facet``, which means all the numerical invariants are zero.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron, represented as a dictionary mapping Weyl chambers to elements of the root space</span>
+<span class="sd">            - ``facet`` -- a facet of the ambient root system, represented as a tuple of vertices in the weight lattice</span>
+<span class="sd">            - ``check`` -- checks if ``comp_poly`` is a complementary polyhedron or not</span>
+
+<span class="sd">        OUTPUT: ``True`` if all numerical invariants associated to ``facet`` are zero, and ``False`` otherwise.</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: Facet = A2.facets()[1]</span>
+<span class="sd">            sage: A2.has_J1(comp_poly, Facet)</span>
+<span class="sd">            True</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">check</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">numerical_invariant</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">vertex</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">facet</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.has_C1">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.has_C1">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">has_C1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether ``comp_poly`` has property ``C1`` with respect to ``facet``, which means all the numerical invariants are greater than zero.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron, represented as a dictionary mapping Weyl chambers to elements of the root space</span>
+<span class="sd">            - ``facet`` -- a facet of the ambient root system, represented as a tuple of vertices in the weight lattice</span>
+<span class="sd">            - ``check`` -- checks if ``comp_poly`` is a complementary polyhedron or not</span>
+
+<span class="sd">        OUTPUT: ``True`` if all numerical invariants associated to ``facet`` are zero, and ``False`` otherwise.</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: Facet = A2.facets()[1]</span>
+<span class="sd">            sage: A2.has_C1(comp_poly, Facet)</span>
+<span class="sd">            False</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">check</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">numerical_invariant</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">vertex</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">facet</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.has_J2">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.has_J2">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">has_J2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether ``comp_poly`` has property ``J2`` with respect to ``facet``, which meansns the complementary polyhedron induced on the orthogonal complement of ``facet`` is stable.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron of the ambient root system</span>
+<span class="sd">            - ``facet`` -- a facet of the ambient root system, represented as a tuple of vertices in the weight lattice</span>
+<span class="sd">            - ``check`` -- checks if ``comp_poly`` is a complementary polyhedron or not</span>
+
+<span class="sd">        OUTPUT: ``True`` if the complementary polyhedron induced on :math:`P^\perp` is stable, and ``False`` otherwise</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: Facet = A2.facets()[1]</span>
+<span class="sd">            sage: A2.has_J2(comp_poly, Facet)</span>
+<span class="sd">            False</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">check</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+
+        <span class="n">comp_poly_P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_poly_facet</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">)</span>
+        <span class="n">self_P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_system_facet_perp</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">self_P</span><span class="o">.</span><span class="n">is_stable</span><span class="p">(</span><span class="n">comp_poly_P</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.has_C2">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.has_C2">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">has_C2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether ``comp_poly`` has property ``C2`` with respect to ``facet``, which means the complementary polyhedron induced on the orthogonal complement of ``facet`` is semistable.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron of the ambient root system</span>
+<span class="sd">            - ``facet`` -- a facet of the ambient root system, represented as a tuple of vertices in the weight lattice</span>
+<span class="sd">            - ``check`` -- checks if ``comp_poly`` is a complementary polyhedron or not</span>
+
+<span class="sd">        OUTPUT: ``True`` if the complementary polyhedron induced on :math:`P^\perp` is stable, and ``False`` otherwise</span>
+
+<span class="sd">        EXAMPLE::</span>
+
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: Facet = A2.facets()[1]</span>
+<span class="sd">            sage: A2.has_C2(comp_poly, Facet)</span>
+<span class="sd">            False</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">check</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+
+        <span class="n">comp_poly_P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_poly_facet</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">)</span>
+        <span class="n">self_P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_system_facet_perp</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">self_P</span><span class="o">.</span><span class="n">is_semistable</span><span class="p">(</span><span class="n">comp_poly_P</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.canonical_facets">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.canonical_facets">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">canonical_facets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the canonical facets satisfying both properties ``C1`` and ``C2``. A facet satisfies ``C1`` if all of its numerical invariants are greater than 0. It satisfies ``C2`` if the complementary polyhedron induced on the orthogonal complement of the facet is semistable.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron of the ambient root system</span>
+<span class="sd">            - ``facet`` -- a facet of the ambient root system, represented as a tuple of vertices in the weight lattice</span>
+
+<span class="sd">        OUTPUT: A list of facets satisfying both ``J1`` and ``J2``, if ``check`` is ``True``, we validate that ``comp_poly`` is a complementary polyhedron.</span>
+
+<span class="sd">        EXAMPLE::</span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): 1/2*alpha[2], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1]+alpha[2], (-Lambda[2], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[1] + Lambda[2], Lambda[2]): 1/2*(alpha[1]+alpha[2]), (Lambda[1], Lambda[1] - Lambda[2]): alpha[2], (-Lambda[2], -Lambda[1]): alpha[1]+alpha[2]}</span>
+<span class="sd">            sage: A2.canonical_facets(comp_poly)</span>
+<span class="sd">            (Lambda[2],)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+    
+        <span class="k">for</span> <span class="n">facet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">facets</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_C1</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_C2</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">facet</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.JH_facets">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.JH_facets">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">JH_facets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the Jordan-Hölder facets satisfying both properties ``J1`` and ``J2`` for a semistable complementary polyhedron. A facet satisfies ``J1`` if all of its numerical invariants vanish. It satisfies ``J2`` if the complementary polyhedron induced on the orthogonal complement of the facet is stable.</span>
+
+<span class="sd">        INPUT:</span>
+<span class="sd">            - ``comp_poly`` -- a complementary polyhedron of the ambient root system</span>
+<span class="sd">            - ``facet`` -- a facet of the ambient root system, represented as a tuple of vertices in the weight lattice</span>
+
+<span class="sd">        OUTPUT: A list of facets satisfying both ``J1`` and ``J2``.</span>
+
+<span class="sd">        EXAMPLE::</span>
+<span class="sd">            sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">            sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">            sage: W = A2.weight_lattice()</span>
+<span class="sd">            sage: V = A2.root_space()</span>
+<span class="sd">            sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">            sage: alpha = V.simple_roots()</span>
+<span class="sd">            sage: comp_poly = {(Lambda[1], Lambda[2]): -alpha[1], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1], (-Lambda[2], Lambda[1] - Lambda[2]): -alpha[1], (-Lambda[1] + Lambda[2], Lambda[2]): alpha[1], (Lambda[1], Lambda[1] - Lambda[2]): -alpha[1], (-Lambda[2], -Lambda[1]): alpha[1]}</span>
+<span class="sd">            sage: A2.JH_facets(comp_poly)</span>
+<span class="sd">            [(-Lambda[2],), (Lambda[2],)]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_semistable</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be semistable&quot;</span><span class="p">)</span>
+
+        <span class="n">facets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">facets</span><span class="p">()</span>
+
+        <span class="c1"># First find one J1/J2 facet and determine its dimension.</span>
+        <span class="n">target_size</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">first_facet</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">for</span> <span class="n">facet</span> <span class="ow">in</span> <span class="n">facets</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_J1</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_J2</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                <span class="n">first_facet</span> <span class="o">=</span> <span class="n">facet</span>
+                <span class="n">target_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span>
+                <span class="k">break</span>
+
+        <span class="c1"># No J1/J2 facets exist (though this never happens).</span>
+        <span class="k">if</span> <span class="n">target_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="c1"># Only search facets of the same dimension.</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">facet</span>
+            <span class="k">for</span> <span class="n">facet</span> <span class="ow">in</span> <span class="n">facets</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">facet</span><span class="p">)</span> <span class="o">==</span> <span class="n">target_size</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_J1</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_J2</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="RootSystem.is_polystable">
+<a class="viewcode-back" href="../../index.html#cpoly.cpoly.RootSystem.is_polystable">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_polystable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_poly</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">            </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Tests whether ``comp_poly`` is polystable. A complementary polyhedron is polystable if the degree of every one-dimensional facet is less than or equal to zero, and degree 0 facets have degree 0 oppositve facets</span>
+<span class="sd">    </span>
+<span class="sd">            INPUT:</span>
+<span class="sd">                - ``comp_poly`` -- a complementary polyhedron</span>
+<span class="sd">                - ``check`` -- checks if ``comp_poly`` is a complementary polyhedron or not</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">            OUTPUT: ``True`` if ``comp_poly`` is a semistable complementary polyhedron, and ``False`` otherwise</span>
+<span class="sd">    </span>
+<span class="sd">            EXAMPLE::</span>
+<span class="sd">    </span>
+<span class="sd">                sage: from cpoly import RootSystem, greater_than</span>
+<span class="sd">    </span>
+<span class="sd">                sage: A2 = RootSystem([&#39;A&#39;, 2])</span>
+<span class="sd">                sage: W = A2.weight_lattice()</span>
+<span class="sd">                sage: V = A2.root_space()</span>
+<span class="sd">                sage: Lambda = W.fundamental_weights()</span>
+<span class="sd">                sage: alpha = V.simple_roots()</span>
+<span class="sd">                sage: comp_poly = {(Lambda[1], Lambda[2]): -alpha[1], (-Lambda[1] + Lambda[2], -Lambda[1]): alpha[1], (-Lambda[2], Lambda[1] - Lambda[2]): -alpha[1], (-Lambda[1] + Lambda[2], Lambda[2]): alpha[1], (Lambda[1], Lambda[1] - Lambda[2]): -alpha[1], (-Lambda[2], -Lambda[1]): alpha[1]}</span>
+<span class="sd">                sage: A2.is_polystable(comp_poly)</span>
+<span class="sd">                True</span>
+<span class="sd">            </span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="n">check</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_comp_poly</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;comp_poly must be a complementary polyhedron&quot;</span><span class="p">)</span>
+
+            <span class="n">facets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">facets_one_dimensional</span><span class="p">()</span>
+
+            <span class="c1"># Compute every degree only once.</span>
+            <span class="n">degrees</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">facet</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">comp_poly</span><span class="p">,</span> <span class="n">facet</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">facet</span> <span class="ow">in</span> <span class="n">facets</span>
+            <span class="p">}</span>
+
+            <span class="k">for</span> <span class="n">facet</span><span class="p">,</span> <span class="n">degree</span> <span class="ow">in</span> <span class="n">degrees</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="c1"># Polystability implies semistability.</span>
+                <span class="k">if</span> <span class="n">degree</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+
+                <span class="c1"># A degree-zero facet must have a degree-zero opposite facet.</span>
+                <span class="k">if</span> <span class="n">degree</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">opposite</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">facet</span><span class="p">[</span><span class="mi">0</span><span class="p">],)</span>
+
+                    <span class="k">if</span> <span class="n">opposite</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">degrees</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="kc">False</span>
+
+                    <span class="k">if</span> <span class="n">degrees</span><span class="p">[</span><span class="n">opposite</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+</div>
+
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>
